@@ -28,7 +28,7 @@ class StreamsController extends AppController {
 			
 			$last = $this->Stream->find("all", array(
 			    'order' => 'date'
-			))[0];
+			))[0]['Stream'];
 
 			$song = $this->Song->findById($last['song_id']);
 
@@ -38,8 +38,6 @@ class StreamsController extends AppController {
 		} catch (Exception $e) {
 			var_dump($e);
 		}
-
-		
 
 		return $this->response;
 	}
