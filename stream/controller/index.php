@@ -11,18 +11,22 @@ class StreamsController extends AppController {
         parent::beforeFilter();                 
     }
 
-    public function create($id) {
+    // public function create($id) {
 
-    	$this->Stream->create();
-    	$this->Stream->save(array(
-    		'song_id' => $id
-    	));
-    }
+    // 	$this->Stream->create();
+    // 	$this->Stream->save(array(
+    // 		'song_id' => $id
+    // 	));
+    // }
 
     public function last() {
 
-    	$this->Stream->find("all", array(
-    		'order' => 'date'
-    	));
+    	// $last = $this->Stream->find("all", array(
+    	// 	'order' => 'date'
+    	// ));
+
+    	$last = array('hello' => "yo");
+
+    	$this->set('last', $last);
     }
 }
