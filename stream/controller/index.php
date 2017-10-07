@@ -11,13 +11,32 @@ class StreamsController extends AppController {
         parent::beforeFilter();                 
     }
 
-    // public function create($id) {
+    public function create() {
 
-    // 	$this->Stream->create();
-    // 	$this->Stream->save(array(
-    // 		'song_id' => $id
-    // 	));
-    // }
+    	$this->autoRender = false;
+    	$this->loadModel('Song');
+
+    	try {
+    		var_dump($this->request->data);
+
+	    	$id = $this->request->data['id'];
+
+	    	$this->Stream->create();
+	    	$this->Stream->save(array(
+	    		'song_id' => $id
+	    	));
+
+	    	$song = $this->Song->findById($id);
+
+	    	$this->response->type('json');
+			$this->response->body(json_encode($song));
+
+    	} catch (Exception $e) {
+    		var_dump($e);
+    	}
+
+		return $this->response;
+    }
 
 	public function last() {
 
@@ -25,7 +44,7 @@ class StreamsController extends AppController {
 		$this->loadModel('Song');
 
 		try {
-			
+
 			$last = $this->Stream->find("all", array(
 			    'order' => ['date' => 'DESC']
 			))[0]['Stream'];

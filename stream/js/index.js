@@ -1,4 +1,21 @@
-$(function( ){
+$(function() {
+
+	$('#content').on('click', playTitle, function(e) {
+		e.preventDefault();
+		var songId = $(this).parents('[data-id]').attr('data-id');
+
+		$.ajax({
+            url: baseurl + "/streams/create",
+            method: 'POST',
+            data: {id: songId}
+            success: function(response) {
+            	console.log('response', response);
+
+            }, error: function(err) {
+            	console.log('err', err);
+            }
+        });
+    });
 
 	function getLastSong() {
 
