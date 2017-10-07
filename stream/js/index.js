@@ -1,6 +1,6 @@
-$(function(){
+$(function( ){
 
-	getLastSong() {
+	function getLastSong() {
 
 		$.ajax({
             url: baseurl + "/stream/last",
@@ -12,4 +12,6 @@ $(function(){
             }
         });
 	}
+
+	getLastSong();
 }
