@@ -4,8 +4,9 @@
 
 	.onoff_view {
 		display: inline-block;
-		line-height: 45px;
-		font-family: 'Roboto Condensed', sans-serif;
+		position: relative;
+	    top: 10px;
+	    left: 70px;
 	}
 
 	*, *:before,
@@ -76,7 +77,7 @@
 </style>
 
 <div class="onoff_view">
-	<a href="#" class="toggle toggle--on"></a>
+	<a href="#" class="toggle toggle--off"></a>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
