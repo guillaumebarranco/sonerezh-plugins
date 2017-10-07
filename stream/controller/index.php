@@ -19,14 +19,22 @@ class StreamsController extends AppController {
     // 	));
     // }
 
-    public function last() {
+	public function last() {
 
-    	// $last = $this->Stream->find("all", array(
-    	// 	'order' => 'date'
-    	// ));
+		$this->autoRender = false;
+		$last = array('test' => 'hello');
 
-    	$last = array('hello' => "yo");
+		try {
+			$last = $this->Stream->find("all", array(
+			    'order' => 'date'
+			));
+		} catch (Exception $e) {
+			var_dump($e);
+		}
 
-    	$this->set('last', $last);
-    }
+		$this->response->type('json');
+		$this->response->body(json_encode($last));
+
+		return $this->response;
+	}
 }
