@@ -11,7 +11,7 @@ class StreamsController extends AppController {
         parent::beforeFilter();                 
     }
 
-    public function new($id) {
+    public function create($id) {
 
     	$this->Stream->create();
     	$this->Stream->save(array(
