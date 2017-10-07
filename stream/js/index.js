@@ -7,7 +7,7 @@ $(function() {
 		$.ajax({
             url: baseurl + "/streams/create",
             method: 'POST',
-            data: {id: songId}
+            data: {id: songId},
             success: function(response) {
             	console.log('response', response);
 
