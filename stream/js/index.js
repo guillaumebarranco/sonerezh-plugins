@@ -7,6 +7,7 @@ $(function( ){
             method: 'GET',
             success: function(response) {
             	console.log('response', response);
+            	player.play(response.Song.id);
             }, error: function(err) {
             	console.log('err', err);
             }
