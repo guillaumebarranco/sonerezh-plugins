@@ -24,14 +24,22 @@ class StreamsController extends AppController {
 		$this->autoRender = false;
 		$this->loadModel('Song');
 
-		$last = $this->Stream->find("all", array(
-		    'order' => 'date'
-		))->toArray()[0];
+		try {
+			
+			$last = $this->Stream->find("all", array(
+			    'order' => 'date'
+			))->toArray()[0];
 
-		$song = $this->Song->findById($last['song_id']);
+			$song = $this->Song->findById($last['song_id']);
 
-		$this->response->type('json');
-		$this->response->body(json_encode($song));
+			$this->response->type('json');
+			$this->response->body(json_encode($song));
+
+		} catch (Exception $e) {
+			var_dump($e);
+		}
+
+		
 
 		return $this->response;
 	}
