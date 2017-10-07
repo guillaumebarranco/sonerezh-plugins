@@ -3,7 +3,7 @@ $(function( ){
 	function getLastSong() {
 
 		$.ajax({
-            url: baseurl + "/stream/last",
+            url: baseurl + "/streams/last",
             method: 'GET',
             success: function(response) {
             	console.log('response', response);
