@@ -27,7 +27,7 @@ class StreamsController extends AppController {
 		try {
 			
 			$last = $this->Stream->find("all", array(
-			    'order' => 'date'
+			    'order' => ['date' => 'DESC']
 			))[0]['Stream'];
 
 			$song = $this->Song->findById($last['song_id']);
