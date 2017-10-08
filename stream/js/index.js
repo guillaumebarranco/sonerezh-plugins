@@ -5,9 +5,8 @@ $(function() {
 		var songId = $(this).parents('[data-id]').attr('data-id');
 
 		$.ajax({
-            url: baseurl + "/streams/create",
-            method: 'POST',
-            data: {id: songId},
+            url: baseurl + "/streams/create?id="+songId,
+            method: 'GET',
             success: function(response) {
             	console.log('response', response);
 
@@ -46,5 +45,15 @@ $(function() {
         });
 	}
 
-	getLastSong();
+	if($('.toggle').hasClass('toggle--on')) {
+		getLastSong();
+	}
+
+	setInterval(function() {
+
+		if($('.toggle').hasClass('toggle--on')) {
+			getLastSong();
+		}
+
+	}, 2000);
 });

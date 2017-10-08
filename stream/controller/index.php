@@ -6,7 +6,7 @@ App::uses("AppController", "Controller");
  * @property Stream $Stream                         
  */                                             
 class StreamsController extends AppController {   
-                                                
+
     public function beforeFilter() {            
         parent::beforeFilter();                 
     }
@@ -17,9 +17,7 @@ class StreamsController extends AppController {
     	$this->loadModel('Song');
 
     	try {
-    		var_dump($this->request->data);
-
-	    	$id = $this->request->data['id'];
+	    	$id = $this->request->query('id');
 
 	    	$this->Stream->create();
 	    	$this->Stream->save(array(
