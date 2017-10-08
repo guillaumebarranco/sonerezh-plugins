@@ -4,16 +4,19 @@ $(function() {
 		e.preventDefault();
 		var songId = $(this).parents('[data-id]').attr('data-id');
 
-		$.ajax({
-            url: baseurl + "/streams/create?id="+songId,
-            method: 'GET',
-            success: function(response) {
-            	console.log('response', response);
+		if($('.toggle').hasClass('toggle--on')) {
 
-            }, error: function(err) {
-            	console.log('err', err);
-            }
-        });
+			$.ajax({
+	            url: baseurl + "/streams/create?id="+songId,
+	            method: 'GET',
+	            success: function(response) {
+	            	console.log('response', response);
+
+	            }, error: function(err) {
+	            	console.log('err', err);
+	            }
+	        });
+		}
     });
 
 	function getLastSong() {
