@@ -39,4 +39,4 @@ function countRappeurs() {
 	}
 </style>
 
-<div class="countRappeurs"><?php echo countRappeurs(); ?> rappeurs</div>
+<div class="countRappeurs"><?php echo countRappeurs(); ?></div>
