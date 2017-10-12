@@ -2,7 +2,7 @@
 
 $path = "/var/music";
 
-$folders = scandir($path):
+$folders = scandir($path);
 
 $totalRappeurs = 0;
 
