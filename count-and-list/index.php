@@ -30,4 +30,13 @@ function countRappeurs() {
 
 ?>
 
-<div>Vous avez $<?php echo countRappeurs(); ?> sur votre plateforme</div>
+<style>
+	.countRappeurs {
+		display: inline-block;
+		position: relative;
+	    top: 10px;
+	    left: 70px;
+	}
+</style>
+
+<div class="countRappeurs"><?php echo countRappeurs(); ?> rappeurs</div>
