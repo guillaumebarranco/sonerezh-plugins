@@ -34,10 +34,10 @@ function countRappeurs() {
 	.countRappeurs {
 		display: inline-block;
 		position: relative;
-	    left: -15px;
+	    left: -30px;
 	    color: white;
 	    background-color: black;
-	    padding: 5px 10px;
+	    padding: 5px 11px;
 	    border-radius: 50%;
 	    box-sizing: border-box;
 	}
