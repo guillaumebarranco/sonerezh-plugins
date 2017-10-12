@@ -1,24 +1,33 @@
 <?php
 
-$path = "/var/music";
+function countRappeurs() {
 
-$folders = scandir($path);
+	$path = "/var/music";
 
-$totalRappeurs = 0;
+	$folders = scandir($path);
 
-foreach ($folders as $folder) {
+	$totalRappeurs = 0;
 
-	if(is_dir($folder)) {
+	foreach ($folders as $f) {
 
-		$files = scandir($path.'/'.$folder);
+		$folder = $path.'/'.$f;
 
-		foreach ($files as $file) {
+		if(is_dir($folder) && $folder !== "." && $folder != "..") {
 
-			if($file === "rap") {
-				$totalRappeurs++;
+			$files = scandir($folder);
+
+			foreach ($files as $file) {
+
+				if($file === "rap") {
+					$totalRappeurs++;
+				}
 			}
 		}
-	}	
+	}
+
+	return $totalRappeurs;
 }
 
-echo "You have ".$totalRappeurs." rappeur";
+?>
+
+<div>Vous avez $<?php countRappeurs(); ?> sur votre plateforme</div>
