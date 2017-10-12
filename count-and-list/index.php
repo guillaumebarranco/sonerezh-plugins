@@ -30,4 +30,4 @@ function countRappeurs() {
 
 ?>
 
-<div>Vous avez $<?php countRappeurs(); ?> sur votre plateforme</div>
+<div>Vous avez $<?php echo countRappeurs(); ?> sur votre plateforme</div>
