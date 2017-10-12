@@ -8,16 +8,17 @@ $totalRappeurs = 0;
 
 foreach ($folders as $folder) {
 
-	$files = scandir($folder);
+	if(is_dir($folder)) {
 
-	foreach ($files as $file) {
-		if($file === ".info") {
-			$info = json_decode(file_get_contents($file));
-			if($info['artist'] && $info['artist']['type'] && $info['artist']['type'] === 'rap') {
+		$files = scandir($path.'/'.$folder);
+
+		foreach ($files as $file) {
+
+			if($file === "rap") {
 				$totalRappeurs++;
 			}
 		}
-	}
+	}	
 }
 
 echo "You have ".$totalRappeurs." rappeur";
