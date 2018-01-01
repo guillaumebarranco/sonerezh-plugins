@@ -31,7 +31,7 @@ if($_GET('mia') && $_GET('mia') === "true") {
         console.log('songs', songs);
 
         player.clearPlaylist();
-        player.addAll(songs);
+        player.addAll(songs.shuffle());
         player.play(songs[0]);
     }, 2000);
 }
